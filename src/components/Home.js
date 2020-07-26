@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import API from '../utils/API'
+import CardComponent from './CardComponent';
+import { CSSTransitionGroup } from 'react-transition-group';
+import tweets from "../server/routes/tweets";
 
 class Home extends React.Component {
 
@@ -19,14 +22,21 @@ class Home extends React.Component {
             );
     };
 
-    componentDidMount() {
+    componentWillMount() {
         this.getTweets();
     }
 
     render() {
         return (
             <React.Fragment>
-                <div>Hello Home</div>
+                <CSSTransitionGroup
+                    transitionName="example"
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={300}>
+                    {this.state.tweets.map((x, i) =>
+                        <CardComponent key={i} data={x} />
+                    )}
+                </CSSTransitionGroup>
             </React.Fragment>
         )
     }
