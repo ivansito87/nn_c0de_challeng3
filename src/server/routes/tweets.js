@@ -10,6 +10,7 @@ module.exports = (app, io) => {
 
     let socketConnection;
     let twitterStream;
+    var params = { user_id: '759251' };
 
     app.locals.searchTerm = 'CNN'; //Default search term for twitter stream.
     app.locals.showRetweets = false; //Default
@@ -17,7 +18,12 @@ module.exports = (app, io) => {
 
     app.get("/chickens", function (req, res) {
         console.log('Chickens route');
-        res.json({ chickens: 'some stuff' });
+        twitter.get('statuses/user_timeline', params, function (error, tweets, response) {
+            if (!error) {
+                console.log(tweets);
+                res.json(tweets);
+            }
+        });
         // res.json(tableData);
     });
 
