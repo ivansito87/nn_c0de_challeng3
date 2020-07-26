@@ -14,6 +14,13 @@ module.exports = (app, io) => {
     app.locals.searchTerm = 'CNN'; //Default search term for twitter stream.
     app.locals.showRetweets = false; //Default
 
+
+    app.get("/chickens", function (req, res) {
+        console.log('Chickens route');
+        res.json({ chickens: 'some stuff' });
+        // res.json(tableData);
+    });
+
     /**
      * Resumes twitter stream.
      */
