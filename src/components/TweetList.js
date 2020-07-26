@@ -7,7 +7,7 @@ import CardComponent from './CardComponent';
 class TweetList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { items: [], searchTerm: "JavaScript" };
+    this.state = { items: [], searchTerm: "CNN" };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);

@@ -16,7 +16,7 @@ module.exports = (app, io) => {
     app.locals.showRetweets = false; //Default
 
 
-    app.get("/chickens", function (req, res) {
+    app.get("/api/cnn-tweets", function (req, res) {
         console.log('Chickens route');
         twitter.get('statuses/user_timeline', params, function (error, tweets, response) {
             if (!error) {
