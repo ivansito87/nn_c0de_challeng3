@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import API from '../utils/API'
 import CardComponent from './CardComponent';
 import { CSSTransitionGroup } from 'react-transition-group';
-import tweets from "../server/routes/tweets";
 
 class Home extends React.Component {
 
