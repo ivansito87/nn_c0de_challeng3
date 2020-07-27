@@ -2,13 +2,12 @@ import React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import socketIOClient from "socket.io-client";
 import CardComponent from './CardComponent';
-import { Container } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 
 class TweetList extends React.Component {
   constructor(props) {
     super(props);
     this.state = { items: [], searchTerm: "CNN" };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleResume = this.handleResume.bind(this);
@@ -69,14 +68,9 @@ class TweetList extends React.Component {
   render() {
     let items = this.state.items;
 
-    let itemsCards = <CSSTransitionGroup
-      transitionName="example"
-      transitionEnterTimeout={500}
-      transitionLeaveTimeout={300}>
-      {items.map((x, i) =>
-        <CardComponent key={i} data={x} />
-      )}
-    </CSSTransitionGroup>;
+    let itemsCards = items.map((x, i) =>
+      <CardComponent key={i} data={x} />
+    );
 
     let searchControls =
       <div>
@@ -107,27 +101,27 @@ class TweetList extends React.Component {
     </div>
 
     return (
-        <div className="row">
-          <div className="col s12 m4 l4">
-            <div className="input-field col s12">
-              {searchControls}
-              {
-                items.length > 0 ? controls : null
-              }
-            </div>
-          </div>
-          <div className="col s12 m4 l4">
-            <div>
-              {
-                items.length > 0 ? itemsCards : loading
-              }
-
-            </div>
-
-          </div>
-          <div className="col s12 m4 l4">
+      <div className="row">
+        <div className="col s12 m4 l4">
+          <div className="input-field col s12">
+            {searchControls}
+            {
+              items.length > 0 ? controls : null
+            }
           </div>
         </div>
+        <div className="col s12 m4 l4">
+          <div>
+            {
+              items.length > 0 ? itemsCards : loading
+            }
+
+          </div>
+
+        </div>
+        <div className="col s12 m4 l4">
+        </div>
+      </div>
     );
   }
 }

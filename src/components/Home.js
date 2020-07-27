@@ -3,7 +3,7 @@ import API from '../utils/API'
 import CardComponent from './CardComponent';
 import { Row } from 'react-bootstrap';
 import NewsNotification from "./NewsNotification";
-import Welcome from "./Welcome.js";
+import WelcomeHeeading from "./Welcome.js";
 
 class Home extends React.Component {
 
@@ -30,7 +30,7 @@ class Home extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Welcome />
+                <WelcomeHeeading />
                 <NewsNotification />
                 <Row style={{ padding: '16px' }}>
                     {this.state.tweets.map((x, i) =>

@@ -1,10 +1,8 @@
 import React from 'react';
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Badge, Button } from 'react-bootstrap';
 
 class NavigationBar extends React.Component {
     render() {
-        let data = this.props.data;
-
         return (
             <Navbar bg="white">
                 <Navbar.Brand href="https://www.cnn.com/">
@@ -16,8 +14,11 @@ class NavigationBar extends React.Component {
                     />
                 </Navbar.Brand>
                 <Nav className="ml-auto">
-                    <Nav.Link href="#home">Live TV</Nav.Link>
-                    <Nav.Link href="#link">Articles</Nav.Link>
+                    <Nav.Link href="/live-stream"><Button variant="danger" size="sm">
+                        Live Stream <Badge variant="light">{this.props.tweetCount}</Badge>
+                        <span className="sr-only">unread messages</span>
+                    </Button></Nav.Link>
+                    <Nav.Link href="/">Home</Nav.Link>
                     <NavDropdown title="Edition" id="basic-nav-dropdown">
                         <NavDropdown.Item href="">Live TV
                         </NavDropdown.Item>

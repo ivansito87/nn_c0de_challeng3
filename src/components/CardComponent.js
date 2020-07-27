@@ -4,7 +4,6 @@ import { Card, Row, Col } from 'react-bootstrap';
 class CardComponent extends React.Component {
     render() {
         let data = this.props.data;
-
         return (
             <Card border="secondary" style={{ width: '48%', margin: '10px' }}>
                 <Card.Header>Header</Card.Header>
