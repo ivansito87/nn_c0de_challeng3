@@ -3,7 +3,7 @@ import socketIOClient from "socket.io-client";
 import CardComponent from './CardComponent';
 import FormSearchController from './SearchTermForm';
 import LoadingBar from './LoadingBar';
-import { Container, Row, Col, Button, Form, FormControl, ProgressBar } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 
 class TweetList extends React.Component {
   constructor(props) {
@@ -16,7 +16,6 @@ class TweetList extends React.Component {
   }
 
   handleChange(event) {
-    console.log(event.target.value);
     this.setState({ searchTerm: event.target.value });
   }
 
@@ -102,10 +101,10 @@ class TweetList extends React.Component {
     return (
       <React.Fragment>
         <Row>
-          <Col>
+          <Col className='search-controls'>
             {items.length > 0 ? controls : null}
           </Col>
-          <Col md={{ span: 4, offset: 4 }}>
+          <Col md={{ span: 4, offset: 4 }} className='search-controls'>
             <FormSearchController handleChange={this.handleChange} handleResume={this.handleResume} />
           </Col>
         </Row>
