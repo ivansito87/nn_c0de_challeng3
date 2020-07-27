@@ -1,5 +1,4 @@
 import React from 'react';
-import { CSSTransitionGroup } from 'react-transition-group';
 import socketIOClient from "socket.io-client";
 import CardComponent from './CardComponent';
 import FormSearchController from './SearchTermForm';
@@ -41,7 +40,7 @@ class TweetList extends React.Component {
     let term = this.state.searchTerm;
     fetch("/setSearchTerm",
       {
-        method: "GET",
+        method: "POST",
         headers: {
           'Content-Type': 'application/json'
         },
