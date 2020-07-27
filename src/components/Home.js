@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import API from '../utils/API'
 import CardComponent from './CardComponent';
-import { CSSTransitionGroup } from 'react-transition-group';
+import { Row } from 'react-bootstrap';
+import NewsNotification from "./NewsNotification";
 
 class Home extends React.Component {
 
@@ -28,14 +29,13 @@ class Home extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <CSSTransitionGroup
-                    transitionName="example"
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={300}>
+                <NewsNotification />
+                <Row style={{ padding: '16px' }}>
                     {this.state.tweets.map((x, i) =>
                         <CardComponent key={i} data={x} />
                     )}
-                </CSSTransitionGroup>
+                </Row>
+
             </React.Fragment>
         )
     }
