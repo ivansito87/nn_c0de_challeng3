@@ -15,7 +15,11 @@ class CardComponent extends React.Component {
                     <Card.Text>
                         <span className="black-text">{data.text}</span>
                     </Card.Text>
-                    <a href={`https://twitter.com/${data.user.screen_name}`} target="_blank">{`@${data.user.screen_name}`}</a>
+                    <Row>
+                        <Col>
+                            <a href={`https://twitter.com/${data.user.screen_name}`} target="_blank">{`@${data.user.screen_name}`}</a>
+                        </Col>
+                    </Row>
                 </Card.Body>
             </Card>
         );
