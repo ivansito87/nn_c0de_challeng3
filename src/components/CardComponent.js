@@ -6,7 +6,7 @@ class CardComponent extends React.Component {
         let data = this.props.data;
         return (
             <Card border="secondary" style={{ width: '48%', margin: '10px' }}>
-                <Card.Header>Header</Card.Header>
+                <Card.Header>{data.user.name}</Card.Header>
                 <Card.Body>
                     <Row>
                         <Col><img src={data.user.profile_image_url} alt={data.user.name} className="circle responsive-img" /></Col>
