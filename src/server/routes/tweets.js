@@ -10,7 +10,7 @@ module.exports = (app, io) => {
 
     let socketConnection;
     let twitterStream;
-    var params = { user_id: "759251" };
+    const params = { user_id: "759251" };
 
     app.locals.searchTerm = "CNN"; //Default search term for twitter stream.
     app.locals.showRetweets = false; //Default

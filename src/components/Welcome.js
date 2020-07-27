@@ -1,6 +1,6 @@
 import React from 'react';
 
-class WelcomeHeeading extends React.Component {
+class WelcomeHeading extends React.Component {
     render() {
         return (
             <h1 className="welcome-heading">Welcome to the twitter feed</h1>
@@ -8,4 +8,4 @@ class WelcomeHeeading extends React.Component {
     }
 }
 
-export default WelcomeHeeading;
+export default WelcomeHeading;
