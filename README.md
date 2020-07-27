@@ -1,3 +1,19 @@
+## Description
+
+## How to Run this App
+
+1. Clone this repo
+2. add .env file to the root project directory with the following keys:
+   TWITTER_CONSUMER_KEY=<<CONSUMER_KEY>>
+   TWITTER_CONSUMER_SECRET=<<CONSUMER_SECRET>>
+   TWITTER_ACCESS_TOKEN_KEY=<<ACCESS_TOKEN>>
+   TWITTER_ACCESS_TOKEN_SECRET=<<ACCESS_SECRET>>
+3. In a terminal window cd src/server and run:
+   ### `npm install`
+   ### `node server.js`
+4. In a different terminal window run:
+   ### `npm start`
+   Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Available Scripts
 
