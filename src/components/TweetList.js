@@ -2,7 +2,7 @@ import React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import socketIOClient from "socket.io-client";
 import CardComponent from './CardComponent';
-
+import { Container } from "react-bootstrap";
 
 class TweetList extends React.Component {
   constructor(props) {
@@ -47,23 +47,23 @@ class TweetList extends React.Component {
       })
   }
 
-componentDidMount() {
-  const socket = socketIOClient('http://localhost:3000/');
+  componentDidMount() {
+    const socket = socketIOClient('http://localhost:3000/');
 
-  socket.on('connect', () => {
-    console.log("Socket Connected");
-    socket.on("tweets", data => {
-      console.info(data);
-      let newList = [data].concat(this.state.items.slice(0, 15));
-      this.setState({ items: newList });
+    socket.on('connect', () => {
+      console.log("Socket Connected");
+      socket.on("tweets", data => {
+        console.info(data);
+        let newList = [data].concat(this.state.items.slice(0, 15));
+        this.setState({ items: newList });
+      });
     });
-  });
-  socket.on('disconnect', () => {
-    socket.off("tweets")
-    socket.removeAllListeners("tweets");
-    console.log("Socket Disconnected");
-  });
-}
+    socket.on('disconnect', () => {
+      socket.off("tweets")
+      socket.removeAllListeners("tweets");
+      console.log("Socket Disconnected");
+    });
+  }
 
 
   render() {
@@ -107,27 +107,27 @@ componentDidMount() {
     </div>
 
     return (
-      <div className="row">
-        <div className="col s12 m4 l4">
-          <div className="input-field col s12">
-            {searchControls}
-            {
-              items.length > 0 ? controls : null
-            }
+        <div className="row">
+          <div className="col s12 m4 l4">
+            <div className="input-field col s12">
+              {searchControls}
+              {
+                items.length > 0 ? controls : null
+              }
+            </div>
           </div>
-        </div>
-        <div className="col s12 m4 l4">
-          <div>
-            {
-              items.length > 0 ? itemsCards : loading
-            }
+          <div className="col s12 m4 l4">
+            <div>
+              {
+                items.length > 0 ? itemsCards : loading
+              }
+
+            </div>
 
           </div>
-
+          <div className="col s12 m4 l4">
+          </div>
         </div>
-        <div className="col s12 m4 l4">
-        </div>
-      </div>
     );
   }
 }
