@@ -13,3 +13,11 @@ body {
   text-decoration: none;
   background-color: #cb2029;
 }
+
+.welcome-heading {
+  font-size: xxx-large;
+  font-weight: bolder;
+  font-family: sans-serif;
+  padding-left: 20px;
+  margin: 20px;
+}

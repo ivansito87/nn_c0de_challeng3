@@ -12,7 +12,7 @@ class NewsNotification extends React.Component {
 
         return (
             <React.Fragment>
-                <Alert show={!this.state.show} variant="danger">
+                <Alert show={!this.state.show} variant="danger" style={{ marginBottom: 0 }}>
                     <Alert.Heading>BREAKING NEWS</Alert.Heading>
                     <p>
                         Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
@@ -20,12 +20,11 @@ class NewsNotification extends React.Component {
                         fermentum.
                     </p>
                     <div className="d-flex justify-content-end">
-                        <Button onClick={() => this.setState({ show: false })} variant="outline-danger">
+                        <Button onClick={() => this.setState({ show: true })} variant="outline-danger">
                             close
                         </Button>
                     </div>
                 </Alert>
-                {this.state.show && <Button onClick={() => this.setState({ show: true })}>Show Alert</Button>}
             </React.Fragment>
         )
     }
