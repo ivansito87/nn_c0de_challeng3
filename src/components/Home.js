@@ -37,7 +37,6 @@ class Home extends React.Component {
 						<CardComponent key={i} data={x} />
 					)}
 				</Row>
-
 			</React.Fragment>
 		)
 	}
