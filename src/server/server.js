@@ -1,7 +1,6 @@
 const express = require('express');
 const http = require('http');
 const socketio = require('socket.io');
-const path = require('path');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3001;
 const app = express();

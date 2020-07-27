@@ -34,7 +34,6 @@ class TweetList extends React.Component {
   }
 
   handleResume() {
-    console.log("Handle Resume");
     // TODO: check what the search term should do in the server
     let term = this.state.searchTerm;
     fetch("/setSearchTerm",
@@ -47,8 +46,7 @@ class TweetList extends React.Component {
       })
   }
 
-  handlePause(event) {
-    console.log("PAUSE");
+  handlePause() {
     fetch("/pause",
       {
         method: "POST",
