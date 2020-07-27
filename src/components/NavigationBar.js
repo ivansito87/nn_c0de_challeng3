@@ -14,10 +14,11 @@ class NavigationBar extends React.Component {
                     />
                 </Navbar.Brand>
                 <Nav className="ml-auto">
-                    <Nav.Link href="/live-stream"><Button variant="danger" size="sm">
-                        Live Stream <Badge variant="light">{this.props.tweetCount}</Badge>
-                        <span className="sr-only">unread messages</span>
-                    </Button></Nav.Link>
+                    <Nav.Link href="/live-stream">
+                        <Badge variant="danger" style={{ marginBottom: '5px' }}>
+                            {' '}
+                        </Badge>Live Stream
+                    </Nav.Link>
                     <Nav.Link href="/">Home</Nav.Link>
                     <NavDropdown title="Edition" id="basic-nav-dropdown">
                         <NavDropdown.Item href="">Live TV
