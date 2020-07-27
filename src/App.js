@@ -11,7 +11,6 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
           <Switch>
             <Container>
               <NavigationBar />
@@ -19,7 +18,7 @@ class App extends Component {
               <Route exact path="/live-stream" component={TweetList} />
             </Container>
           </Switch>
-        </div>
+
       </Router>
     );
   }
