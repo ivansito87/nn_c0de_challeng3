@@ -2,7 +2,9 @@ import React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import socketIOClient from "socket.io-client";
 import CardComponent from './CardComponent';
-import { Row } from "react-bootstrap";
+import FormSearchController from './SearchTermForm';
+import LoadingBar from './LoadingBar';
+import { Container, Row, Col, Button, Form, FormControl, ProgressBar } from "react-bootstrap";
 
 class TweetList extends React.Component {
   constructor(props) {
@@ -15,7 +17,16 @@ class TweetList extends React.Component {
   }
 
   handleChange(event) {
+    console.log(event.target.value);
     this.setState({ searchTerm: event.target.value });
+  }
+
+  handleLoadingBar() {
+    let interval = 0;
+    setInterval(() => {
+      interval += 1;
+    }, 50);
+    return interval;
   }
 
   handleKeyPress(event) {
@@ -25,10 +36,12 @@ class TweetList extends React.Component {
   }
 
   handleResume() {
+    console.log("Handle Resume");
+    // TODO: check what the search term should do in the server
     let term = this.state.searchTerm;
     fetch("/setSearchTerm",
       {
-        method: "POST",
+        method: "GET",
         headers: {
           'Content-Type': 'application/json'
         },
@@ -37,6 +50,7 @@ class TweetList extends React.Component {
   }
 
   handlePause(event) {
+    console.log("PAUSE");
     fetch("/pause",
       {
         method: "POST",
@@ -50,9 +64,9 @@ class TweetList extends React.Component {
     const socket = socketIOClient('http://localhost:3000/');
 
     socket.on('connect', () => {
-      console.log("Socket Connected");
+      // console.log("Socket Connected");
       socket.on("tweets", data => {
-        console.info(data);
+        // console.info(data);
         let newList = [data].concat(this.state.items.slice(0, 15));
         this.setState({ items: newList });
       });
@@ -66,21 +80,17 @@ class TweetList extends React.Component {
 
 
   render() {
-    let items = this.state.items;
+    let { items } = this.state;
 
     let itemsCards = items.map((x, i) =>
       <CardComponent key={i} data={x} />
     );
 
-    let searchControls =
-      <div>
-        <input id="email" type="text" className="validate" value={this.state.searchTerm} onKeyPress={this.handleKeyPress} onChange={this.handleChange} />
-        <label htmlFor="email">Search</label>
-      </div>
 
     let filterControls = <div>
-      <a className="btn-floating btn-small waves-effect waves-light pink accent-2" style={controlStyle} onClick={this.handleResume}><i className="material-icons">play_arrow</i></a>
-      <a className="btn-floating btn-small waves-effect waves-light pink accent-2" onClick={this.handlePause} ><i className="material-icons">pause</i></a>
+
+      <Button variant="outline-dark" onClick={this.handleResume} className="mr-2">Stream</Button>
+      <Button variant="outline-secondary" onClick={this.handlePause}>Pause</Button>
       <p>
         <input type="checkbox" id="test5" />
         <label htmlFor="test5">Retweets</label>
@@ -93,41 +103,25 @@ class TweetList extends React.Component {
       }
     </div>
 
-    let loading = <div>
-      <p className="flow-text">Listening to Streams</p>
-      <div className="progress lime lighten-3">
-        <div className="indeterminate pink accent-1"></div>
-      </div>
-    </div>
 
     return (
-      <div className="row">
-        <div className="col s12 m4 l4">
-          <div className="input-field col s12">
-            {searchControls}
-            {
-              items.length > 0 ? controls : null
-            }
-          </div>
-        </div>
-        <div className="col s12 m4 l4">
-          <div>
-            {
-              items.length > 0 ? itemsCards : loading
-            }
-
-          </div>
-
-        </div>
-        <div className="col s12 m4 l4">
-        </div>
-      </div>
+      <React.Fragment>
+        <Row>
+          <Col>
+            {items.length > 0 ? controls : null}
+          </Col>
+          <Col md={{ span: 4, offset: 4 }}>
+            <FormSearchController handleChange={this.handleChange} handleResume={this.handleResume} />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            {items.length > 0 ? itemsCards : <LoadingBar />}
+          </Col>
+        </Row>
+      </React.Fragment>
     );
   }
 }
-
-const controlStyle = {
-  marginRight: "5px"
-};
 
 export default TweetList;

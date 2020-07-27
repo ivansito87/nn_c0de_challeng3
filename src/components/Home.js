@@ -16,7 +16,7 @@ class Home extends React.Component {
             .then(res =>
                 this.setState({
                     tweets: res.data
-                }, () => console.log(this.state.tweets))
+                })
             )
             .catch((e) =>
                 console.log(e)
