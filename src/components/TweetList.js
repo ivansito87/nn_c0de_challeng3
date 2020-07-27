@@ -3,15 +3,15 @@ import socketIOClient from "socket.io-client";
 import CardComponent from './CardComponent';
 import FormSearchController from './SearchTermForm';
 import LoadingBar from './LoadingBar';
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import FilterControls from "./FilterControls";
+import API from '../utils/API';
 
 class TweetList extends React.Component {
   constructor(props) {
     super(props);
     this.state = { items: [], searchTerm: "CNN" };
     this.handleChange = this.handleChange.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleResume = this.handleResume.bind(this);
     this.handlePause = this.handlePause.bind(this);
   }
@@ -20,32 +20,14 @@ class TweetList extends React.Component {
     this.setState({ searchTerm: event.target.value });
   }
 
-  handleKeyPress(event) {
-    if (event.key === 'Enter') {
-      this.handleResume();
-    }
-  }
-
   handleResume() {
-    let term = this.state.searchTerm;
-    fetch("/setSearchTerm",
-      {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ term })
-      })
+    API.setSearchTerm(this.state.searchTerm)
+      .then(res => console.log(res))
+      .catch(err => { throw new Error(err) })
   }
 
   handlePause() {
-    fetch("/pause",
-      {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
+    API.pauseStream
   }
 
   componentDidMount() {
@@ -83,7 +65,7 @@ class TweetList extends React.Component {
         </Row>
         <Row style={{ padding: '16px', width: '100%' }}>
           {items.map((x, i) =>
-              <CardComponent key={i} data={x} />
+            <CardComponent key={i} data={x} />
           )}
         </Row>
       </React.Fragment>
