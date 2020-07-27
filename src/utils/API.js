@@ -5,4 +5,4 @@ export default {
     getTweets: function () {
         return axios.get("/api/cnn-tweets");
     },
-};
+}

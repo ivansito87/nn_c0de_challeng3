@@ -91,10 +91,6 @@ class TweetList extends React.Component {
 
       <Button variant="outline-dark" onClick={this.handleResume} className="mr-2">Stream</Button>
       <Button variant="outline-secondary" onClick={this.handlePause}>Pause</Button>
-      <p>
-        <input type="checkbox" id="test5" />
-        <label htmlFor="test5">Retweets</label>
-      </p>
     </div>
 
     let controls = <div>
@@ -114,10 +110,11 @@ class TweetList extends React.Component {
             <FormSearchController handleChange={this.handleChange} handleResume={this.handleResume} />
           </Col>
         </Row>
+        <Row>
+          {items.length == 0 && <LoadingBar />}
+        </Row>
         <Row style={{ padding: '16px', width: '100%' }}>
-          <Col>
-            {items.length > 0 ? itemsCards : <LoadingBar />}
-          </Col>
+          {itemsCards}
         </Row>
       </React.Fragment>
     );

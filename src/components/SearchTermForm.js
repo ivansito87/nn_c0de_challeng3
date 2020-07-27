@@ -4,7 +4,7 @@ class FormSearchController extends React.Component {
     render() {
         return (
             <Form inline>
-                <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={this.props.handleChange} />
+                <FormControl type="text" placeholder="CNN" className="mr-sm-2" onChange={this.props.handleChange} />
                 <Button variant="outline-success" onClick={this.props.handleResume}>Search</Button>
             </Form>
         )
