@@ -1,6 +1,6 @@
 ## Description
 
-This Application is a simple realtime Twitter timeline renderer web application. When you first visit the Home page it will show all the latest tweet by a specific user. The live stream option is a page that will continously pull tweets with a specific fillter. 
+This Application is a simple realtime Twitter timeline renderer web application. When you first visit the Home page it will show all the latest tweet by a specific user. The live stream option is a page that will continously pull tweets with a specific fillter. To view this feature click on the Live stream button.
 
 ## How to Run this App
 
