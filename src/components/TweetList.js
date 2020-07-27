@@ -114,7 +114,7 @@ class TweetList extends React.Component {
             <FormSearchController handleChange={this.handleChange} handleResume={this.handleResume} />
           </Col>
         </Row>
-        <Row>
+        <Row style={{ padding: '16px', width: '100%' }}>
           <Col>
             {items.length > 0 ? itemsCards : <LoadingBar />}
           </Col>

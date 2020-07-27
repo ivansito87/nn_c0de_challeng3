@@ -5,7 +5,7 @@ class LoadingBar extends React.Component {
         return (
             <div>
                 <p>Loading...</p>
-                <div class="progress">
+                <div className="progress">
                     <span className="progress-bar" style={{ width: '100%' }}></span>
                 </div>
             </div>
