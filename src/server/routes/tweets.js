@@ -57,7 +57,6 @@ module.exports = (app, io) => {
 	app.post("/setSearchTerm", (req, res) => {
 		let term = req.body.term;
 		app.locals.searchTerm = term;
-		// twitterStream.destroy();
 		stream();
 	});
 

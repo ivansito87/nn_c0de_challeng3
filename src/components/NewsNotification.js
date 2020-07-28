@@ -10,7 +10,6 @@ class NewsNotification extends React.Component {
 	getBreakingNewsTweet = () => {
 		API.getBreakingNewsTweet()
 			.then((res) => {
-				console.log(res.data);
 				this.setState({
 					breaking_news: res.data[0].user.description,
 				});
@@ -27,7 +26,7 @@ class NewsNotification extends React.Component {
 			<React.Fragment>
 				{!this.state.show && <div className='notification'>
 					{this.state.breaking_news}
-					<i class="fa fa-times fa-1x" aria-hidden="true" onClick={() => this.setState({ show: true })}></i>
+					<i className="fa fa-times fa-1x" aria-hidden="true" onClick={() => this.setState({ show: true })}></i>
 				</div>}
 			</React.Fragment>
 		)

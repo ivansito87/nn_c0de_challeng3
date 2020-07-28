@@ -42,7 +42,7 @@ class TweetList extends React.Component {
     socket.on('disconnect', () => {
       socket.off("tweets")
       socket.removeAllListeners("tweets");
-      console.log("Socket Disconnected");
+      console.warn("Socket Disconnected");
     });
   }
 

@@ -18,7 +18,7 @@ class Footer extends React.Component {
 			'Transcripts'
 		];
 		return (
-			<footer class="site-footer">
+			<footer className="site-footer">
 				<hr />
 				<Row>
 					<Col>
@@ -31,25 +31,25 @@ class Footer extends React.Component {
 						/>
 					</Col>
 					<Col>
-						<ul class="social-icons">
+						<ul className="social-icons">
 							<span className='follow-cnn'>FOLLOW CNN  |  </span>
-							<li><a class="facebook" href="https://www.facebook.com/cnn"><i class="fa fa-facebook"></i></a></li>
-							<li><a class="twitter" href="https://twitter.com/cnn"><i class="fa fa-twitter"></i></a></li>
-							<li><a class="youtube" href="https://www.youtube.com/user/CNN"><i class="fa fa-youtube"></i></a></li>
-							<li><a class="instagram" href="https://www.instagram.com/CNN/"><i class="fa fa-instagram"></i></a></li>
+							<li><a className="facebook" href="https://www.facebook.com/cnn"><i className="fa fa-facebook"></i></a></li>
+							<li><a className="twitter" href="https://twitter.com/cnn"><i className="fa fa-twitter"></i></a></li>
+							<li><a className="youtube" href="https://www.youtube.com/user/CNN"><i className="fa fa-youtube"></i></a></li>
+							<li><a className="instagram" href="https://www.instagram.com/CNN/"><i className="fa fa-instagram"></i></a></li>
 						</ul>
 					</Col>
 				</Row>
 				<hr />
 				<Row>
 					<Col>
-						{links.map(lk => <Link className="pr-3" to={'#'}>{lk}</Link>)}
+						{links.map(lk => <Link className="pr-3" to={'#'} key={lk}>{lk}</Link>)}
 					</Col>
 				</Row>
 				<Row>
 					<Col>
 						<p className="copyright-text pt-4">&copy; 2019 Cable News Network. Turner Broadcasting Systems, Inc. All Rights Reserved.<br />
-							<p>CNN Sans&#8482; & &copy;k 2016 Cable News Network </p>
+							<span>CNN Sans&#8482; & &copy;k 2016 Cable News Network </span>
 						</p>
 					</Col>
 				</Row>

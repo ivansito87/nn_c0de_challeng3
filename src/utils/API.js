@@ -16,6 +16,7 @@ export default {
     return axios.post("/setSearchTerm", { term });
   },
 
+  // Handles the pausing functionality
   pauseStream: function () {
     return axios.post("/pause", {});
   },
