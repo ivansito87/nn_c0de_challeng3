@@ -1,9 +1,10 @@
 ## Description
 
-- This Application is a simple realtime Twitter timeline renderer web application.
+- This Application is a simple realtime Twitter renderer web application.
 
 - When you first visit the Home page `( http://localhost:3000/ )` the application renders realtime CNN’s Twitter timeline. 
- -- when statrign the application you will be redirected to the home page, this will display the reset Tweets made by a specific user in this case `CNN`
+ -- when starting the application you will be redirected to the home page, this will display the latest Tweets made by a specific user in this case `CNN`
+ -- the page is structured to render a container displaying the recent tweets, and implenting `infite scroll functionality`, loading 10 tweets at a time thinking primarliy in User Experience and preformance. 
 
 - There is a second page build within the application under the `Live Stream` option in the navigatin bar
    ![Screenshot](src/assets/screen_shot1.png)
