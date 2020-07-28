@@ -1,19 +1,22 @@
 import axios from "axios";
 
 export default {
-    // Gets Tweets from the Twitter API
-    // Cutom util for adding routes to application, 
-    getTweets: function () {
-        return axios.get("/api/cnn-tweets");
-    },
+  // Gets Tweets from the Twitter API
+  // Cutom util for adding routes to application,
+  getTweets: function () {
+    return axios.get("/api/cnn-tweets");
+  },
 
-    // Handles the post to search term
-    setSearchTerm: function (term) {
-        return axios.post('/setSearchTerm', { term });
-    },
+  getBreakingNewsTweet: function () {
+    return axios.get("/api/cnn-breakingnews");
+  },
 
-    pauseStream: function () {
-        return axios.post("/pause", {})
-    }
+  // Handles the post to search term
+  setSearchTerm: function (term) {
+    return axios.post("/setSearchTerm", { term });
+  },
 
-}
+  pauseStream: function () {
+    return axios.post("/pause", {});
+  },
+};
