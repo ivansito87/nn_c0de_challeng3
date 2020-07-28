@@ -39,7 +39,7 @@ module.exports = (app, io) => {
    */
   const stream = () => {
     console.log("Resuming for " + app.locals.searchTerm);
-    twitter.stream("statuses/filter", { track: app.locals.searchTerm }, (stream) => {
+    twitter.stream("statuses/filter", { follow: "759251" }, (stream) => {
       stream.on("data", (tweet) => {
         sendMessage(tweet);
       });
