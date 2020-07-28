@@ -1,6 +1,8 @@
 ## ✨Description
 
 - This Application is a simple realtime Twitter renderer web application.
+   ![Screenshot](src/assets/preivew_o.png)
+
 
 - When you first visit the Home page `( http://localhost:3000/ )` the application renders realtime CNN’s Twitter timeline. 
    - when starting the application you will be redirected to the home page, this will display the latest Tweets made by a specific user in this case `CNN`
