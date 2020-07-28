@@ -1,34 +1,45 @@
 ## Description
 
-This Application is a simple realtime Twitter timeline renderer web application. When you first visit the Home page it will show all the latest tweet by a specific user. The live stream option is a page that will continously pull tweets with a specific fillter. To view this feature click on the Live stream button.
+- This Application is a simple realtime Twitter timeline renderer web application.
+
+- When you first visit the Home page `( http://localhost:3000/ )` the application renders realtime CNN’s Twitter timeline. 
+ -- when statrign the application you will be redirected to the home page, this will display the reset Tweets made by a specific user in this case `CNN`
+
+- There is a second page build within the application under the `Live Stream` option in the navigatin bar
+   ![Screenshot](src/assets/screen_shot1.png)
+
+- live stream option is a page that will continously pull tweets with a specific fillter. 
+   -- this page leverages the use of web sockets to create a steram of data comunicating with tweeter's api using `socketio`
 
 ## How to Run this App
 
-1. Clone this repo
-2. add .env file to the root project directory with the following keys:
-   TWITTER_CONSUMER_KEY=<<CONSUMER_KEY>>
-   TWITTER_CONSUMER_SECRET=<<CONSUMER_SECRET>>
-   TWITTER_ACCESS_TOKEN_KEY=<<ACCESS_TOKEN>>
-   TWITTER_ACCESS_TOKEN_SECRET=<<ACCESS_SECRET>>
-3. In a terminal window cd src/server and run:
-   ### `npm install`
-   ### `node server.js`
-4. In a different terminal window run:
-   ### `npm start`
-   Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Clone this repo 
+   -- open your terminal run `git clone https://github.com/ivansito87/nn_c0de_challeng3.git`
+
+2. cd into `cd nn_c0de_challeng3` and run `yarn` or if you prefer using npm run `npm install`
+
+3. create `.env` file to the root project directory with the following keys:
+   -- add the folowing keys
+```shell
+   TWITTER_CONSUMER_KEY=<consumer_key>
+   TWITTER_CONSUMER_SECRET=<consumer_secret>
+   TWITTER_ACCESS_TOKEN_KEY=<access_token>
+   TWITTER_ACCESS_TOKEN_SECRET=<access_secret>
+```
+3. In a terminal window `cd src/server` and run:
+   #### `node server.js`
+
+4. Open a new terminal window and run:
+   #### `yarn start` or `npm start`
+   Runs the app in the development mode.<br>
+   Open [http://localhost:3000](http://localhost:3000) to view the Tweet CNN Application in the browser.
 
 ## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+to test run 
+#### `yarn test`
+npm 
 
 The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br>
