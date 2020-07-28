@@ -2,6 +2,7 @@ import React from 'react';
 import socketIOClient from "socket.io-client";
 import CardComponent from './CardComponent';
 import FormSearchController from './SearchTermForm';
+import NewsNotification from './NewsNotification';
 import LoadingBar from './LoadingBar';
 import { Row, Col } from "react-bootstrap";
 import FilterControls from "./FilterControls";
@@ -27,12 +28,11 @@ class TweetList extends React.Component {
   }
 
   handlePause() {
-    API.pauseStream
+    API.pauseStream()
   }
 
   componentDidMount() {
     const socket = socketIOClient('http://localhost:3000/');
-
     socket.on('connect', () => {
       socket.on("tweets", data => {
         let newList = [data].concat(this.state.items.slice(0, 15));
@@ -60,10 +60,11 @@ class TweetList extends React.Component {
             <FormSearchController handleChange={this.handleChange} handleResume={this.handleResume} />
           </Col>
         </Row>
+        <NewsNotification />
         <Row>
           {items.length === 0 && <LoadingBar />}
         </Row>
-        <Row style={{ padding: '16px', width: '100%' }}>
+        <Row className="infinite-scroll__container">
           {items.map((x, i) =>
             <CardComponent key={i} data={x} />
           )}

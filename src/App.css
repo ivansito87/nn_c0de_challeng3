@@ -78,10 +78,18 @@ body {
     background-position: 0;
   }
 }
+
 /*  Search Controls  */
 .search-controls {
   margin-left: 50px;
   padding: 30px;
+}
+
+/* Scrolling Container */
+.infinite-scroll__container {
+  height: 600px;
+  overflow: auto;
+  padding: 16px;
 }
 
 /*  Footer  */

@@ -62,7 +62,7 @@ class Home extends React.Component {
 			<React.Fragment>
 				<WelcomeHeading />
 				<NewsNotification />
-				<Row ref="iScroll" style={{ height: "600px", overflow: "auto", padding: '16px' }}>
+				<Row ref="iScroll" className="infinite-scroll__container">
 					{this.displayTweets()}
 				</Row>
 				<div style={{ height: '40px', paddingTop: '12px' }}>
