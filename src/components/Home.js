@@ -65,7 +65,7 @@ class Home extends React.Component {
 				<Row ref="iScroll" style={{ height: "600px", overflow: "auto", padding: '16px' }}>
 					{this.displayTweets()}
 				</Row>
-				<div style={{ height: '40px' }}>
+				<div style={{ height: '40px', paddingTop: '12px' }}>
 					{this.state.loadingState ? <LoadingBar /> : ""}
 				</div>
 			</React.Fragment>
